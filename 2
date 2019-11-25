@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+int ind[n]; 
+void palindrom(int n, int t)
+{
+   int m = (n >> 1) + (n & 1);
+   if (t == m)   
+   {
+      if (ind[0] != 0)  
+      {
+         for (int i = 0; i < m; i++) 
+            cout << ind[i] << " ";
+         for (int i = (n & 1) ? m - 2 : m - 1; i >= 0; i--) 
+            cout << ind[i] << " ";
+         cout << endl;
+      }
+      return;
+   }
+   for (int i = 0; i < 10; i++)  
+   {
+      ind[t] = i;             
+      palindrom(n, t + 1);   
+   }
+}
+int main() {
+   int n;     
+   cin >> n;
+   palindrom(n, 0);
+   system("pause");
+   return 0;
+}
